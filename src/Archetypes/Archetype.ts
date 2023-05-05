@@ -20,4 +20,8 @@ export default abstract class Archetype {
   get special():number {
     return this._special;
   }
+
+  get cost():number {
+    return this._cost;
+  }
 }
