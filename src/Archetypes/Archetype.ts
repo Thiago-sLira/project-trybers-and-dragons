@@ -16,4 +16,8 @@ export default abstract class Archetype {
   get name():string {
     return this._name;
   }
+
+  get special():number {
+    return this._special;
+  }
 }
