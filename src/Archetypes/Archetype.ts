@@ -12,4 +12,8 @@ export default abstract class Archetype {
     this._special = special;
     this._cost = cost;
   }
+
+  get name():string {
+    return this._name;
+  }
 }
