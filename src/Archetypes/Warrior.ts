@@ -7,10 +7,8 @@ export default class Warrior extends Archetype {
 
   constructor(
     name: string,
-    special: number,
-    cost: number,
   ) {
-    super(name, special, cost);
+    super(name);
     this._energyType = 'stamina';
     Warrior._warriorInstancesCreated += 1;
   }
