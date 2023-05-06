@@ -27,6 +27,6 @@ export default class Monster implements SimpleFighter {
   }
 
   attack(enemy: SimpleFighter): void {
-    throw new Error('Method not implemented.');
+    enemy.receiveDamage(this._strength);
   }
 }
