@@ -12,8 +12,21 @@ export default class Monster implements SimpleFighter {
   get lifePoints(): number {
     return this._lifePoints;
   }
-  
+
   get strength(): number {
     return this._strength;
+  }
+
+  receiveDamage(attackPoints: number): number {
+    this._lifePoints -= attackPoints;
+    if (this._lifePoints <= 0) {
+      this._lifePoints = -1;
+      return this._lifePoints;
+    }
+    return this._lifePoints;
+  }
+
+  attack(enemy: SimpleFighter): void {
+    throw new Error('Method not implemented.');
   }
 }
