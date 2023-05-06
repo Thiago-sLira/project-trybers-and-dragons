@@ -69,7 +69,7 @@ export default class Character implements Fighter {
   }
 
   attack(enemy: Fighter): void {
-    throw new Error('Method not implemented.');
+    enemy.receiveDamage(this._strength);
   }
 
   special?(enemy: Fighter): void {
