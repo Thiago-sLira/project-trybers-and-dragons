@@ -8,12 +8,12 @@ import getRandomInt from './utils';
 export default class Character implements Fighter {
   private _race: Race;
   private _archetype: Archetype;
-  private _maxLifePoints: number;
   private _lifePoints: number;
   private _strenght: number;
   private _defense: number;
   private _dexterity: number;
   private _energy: Energy;
+  private _maxLifePoints: number;
   private _name: string;
 
   constructor(character: ICharacter) {
@@ -29,5 +29,33 @@ export default class Character implements Fighter {
       type_: this._archetype.energyType,
       amount: getRandomInt(1, 10),
     };
+  }
+
+  get race(): Race {
+    return this._race;
+  }
+
+  get archetype(): Archetype {
+    return this._archetype;
+  }
+
+  get lifePoints(): number {
+    return this._lifePoints;
+  }
+
+  get strenght(): number {
+    return this._strenght;
+  }
+
+  get defense(): number {
+    return this._defense;
+  }
+
+  get dexterity(): number {
+    return this._dexterity;
+  }
+
+  get energy(): Energy {
+    return Object.freeze({ ...this._energy });
   }
 }
