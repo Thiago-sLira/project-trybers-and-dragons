@@ -72,11 +72,24 @@ export default class Character implements Fighter {
     enemy.receiveDamage(this._strength);
   }
 
-  special?(enemy: Fighter): void {
-    throw new Error('Method not implemented.');
+  levelUp(): void {
+    this._maxLifePoints += getRandomInt(1, 10);
+    this._strength += getRandomInt(1, 10);
+    this._dexterity += getRandomInt(1, 10);
+    this._defense += getRandomInt(1, 10);
+    this._energy.amount = 10;
+
+    if (this._maxLifePoints > this._race.maxLifePoints) {
+      this._maxLifePoints = this._race.maxLifePoints;
+    }
+
+    this._lifePoints = this._maxLifePoints;
   }
 
-  levelUp(): void {
-    throw new Error('Method not implemented.');
+  special?(enemy: Fighter): void {
+    if (enemy.strength < this._strength) {
+      enemy.receiveDamage(this._strength + getRandomInt(10, 20));
+    }
+    enemy.receiveDamage(getRandomInt(10, 20));
   }
 }
