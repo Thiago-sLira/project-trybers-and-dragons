@@ -1,7 +1,7 @@
+// import ICharacter from './ICharacter';
 import Archetype, { Mage } from './Archetypes';
 import Energy from './Energy';
 import Fighter from './Fighter';
-import ICharacter from './ICharacter';
 import Race, { Elf } from './Races';
 import getRandomInt from './utils';
 
@@ -16,8 +16,8 @@ export default class Character implements Fighter {
   private _maxLifePoints: number;
   private _name: string;
 
-  constructor(character: ICharacter) {
-    this._name = character.name;
+  constructor(name: string) {
+    this._name = name;
     this._dexterity = getRandomInt(1, 10);
     this._race = new Elf(this._name, this._dexterity);
     this._archetype = new Mage(this._name);
