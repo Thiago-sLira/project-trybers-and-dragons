@@ -38,8 +38,8 @@ export default class PVE extends Battle {
   fight(): number {
     this._monsters.forEach((monster) => {
       while (this.verifyCharacter() && this.verifyMonster()) {
-        this._character.attack(monster);
-        monster.attack(this._character);
+        this.characterAttacks(monster);
+        this.monsterAttacks(this._character);
       }
     });
     return super.fight();
