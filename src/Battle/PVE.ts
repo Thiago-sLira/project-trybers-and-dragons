@@ -31,17 +31,17 @@ export default class PVE extends Battle {
     return this._character.lifePoints > 0;
   }
 
-  // verifyMonster(monster: SimpleFighter): boolean {
-  //   return monster.lifePoints > 0;
-  // }
+  verifyMonster(): boolean {
+    return this._monsters.some((monster) => monster.lifePoints > 0);
+  }
 
   fight(): number {
-    while (this.verifyCharacter()) {
-      this._monsters.forEach((monster) => {
+    this._monsters.forEach((monster) => {
+      while (this.verifyCharacter() && this.verifyMonster()) {
         this._character.attack(monster);
         monster.attack(this._character);
-      });
-    }
+      }
+    });
     return super.fight();
   }
 }
