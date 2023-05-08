@@ -21,11 +21,11 @@ export default class PVE extends Battle {
     }
   }
 
-  monsterAttacks(monster: SimpleFighter): void {
-    if (monster.lifePoints > 0) {
-      monster.attack(this._character);
-    }
-  }
+  // monsterAttacks(monster: SimpleFighter): void {
+  //   if (monster.lifePoints > 0) {
+  //     monster.attack(this._character);
+  //   }
+  // }
 
   verifyCharacter(): boolean {
     return this._character.lifePoints > 0;
@@ -39,7 +39,7 @@ export default class PVE extends Battle {
     this._monsters.forEach((monster) => {
       while (this.verifyCharacter() && this.verifyMonster()) {
         this.characterAttacks(monster);
-        this.monsterAttacks(monster);
+        monster.attack(this._character);
       }
     });
     return super.fight();
