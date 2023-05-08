@@ -34,9 +34,9 @@ export default class PVP extends Battle {
 
   fight(): number {
     while (this.verifyBattle()) {
-      // if (this._characterBlue.dexterity > this._characterRed.dexterity) {
       this.blueAttacks();
       this.redAttacks();
+      // if (this._characterBlue.dexterity > this._characterRed.dexterity) {
       // } else {
       //   this.redAttacks();
       //   this.blueAttacks();
